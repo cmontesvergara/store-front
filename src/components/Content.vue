@@ -1,26 +1,29 @@
 <template>
   <div class="contenedor">
     <NavBar />
+    <Crear v-if="valor1" />
+    <Actualizar v-if="valor2" :info="info" />
 
   </div>
 </template>
 
 <script>
 import NavBar from "@/components/NavBar.vue";
+import Crear from "@/components/Crear.vue";
+import Actualizar from "@/components/Actualizar.vue";
 export default {
   name: "Content",
   props:{
-    crear : Boolean,
-    actualizar: Boolean,
+    valor1 : Boolean,
+    valor2: Boolean,
+    info: Object
   },
   data() {
     return {
-      vistaCrear: this.crear,
-      vistaActualizar: this.actualizar,
     };
   },
   components: {
-    NavBar,
+    NavBar,Crear,Actualizar
   },
 };
 </script>

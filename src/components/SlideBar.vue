@@ -7,8 +7,8 @@
         </li>
 
 
-        <router-link  to="/dashboard/crear"><li class="r-link">Crear</li></router-link>
-        <router-link  to="/dashboard/actualizar"><li  class="r-link">Actualizar</li></router-link>
+        <li class="r-link" @click="$emit('clickCrear')">Crear</li>
+        <li  class="r-link" @click="$emit('clickActualizar')">Actualizar</li>
         <router-link  to="#" ><li class="r-link">Borrar</li></router-link>
       </ul>
     </nav>
@@ -60,6 +60,7 @@ export default {
 }
 .r-link:hover{
   box-shadow: 0px 3px 8px #45464e79;
+  cursor: pointer;
 }
 
 .nav-slide,.ul-slide,.brand{

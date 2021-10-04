@@ -2,8 +2,6 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import DashBoard from "../views/DashBoard.vue";
-import DashBoardCrear from "../views/DashBoardCrear.vue";
-import DashBoardActualizar from "../views/DashBoardActualizar.vue";
 
 Vue.use(VueRouter);
 
@@ -27,16 +25,7 @@ const routes = [
     name: "DashBoard",
     component: DashBoard,
   },
-  {
-    path: "/dashboard/crear",
-    name: "DashBoardCrear",
-    component: DashBoardCrear,
-  },
-  {
-    path: "/dashboard/actualizar",
-    name: "DashBoardActualizar",
-    component: DashBoardActualizar,
-  },
+
 ];
 
 const router = new VueRouter({
