@@ -13,12 +13,12 @@ export default {
     //console.log(API2);
     return axios.get(API2);
   },
-  update(nombre,obj){
+  update(nombre, obj) {
     const API2 = `${API}/${nombre}`;
     //console.log(API2);
-    return axios.put(API2,obj);
+    return axios.put(API2, obj);
   },
-  delete(nombre){
+  delete(nombre) {
     const API2 = `${API}/${nombre}`;
     //console.log(API2);
     return axios.delete(API2);

@@ -41,19 +41,16 @@ export default {
     };
   },
   methods:{
+
     async crear(){
       const nombre = document.getElementById('nombre').value;
       const apellido = document.getElementById('apellido').value;
       const telefono = document.getElementById('telefono').value;
+
       await Api.create({nombre:nombre,apellido,telefono});
       window.location.reload(true);
     }
   }
-  //async created() {
-  //  let respuesta = await getAllSedes.get();
-  //  this.result = respuesta.data;
-  //  console.log(respuesta.data);
-  //}
 };
 </script>
 

@@ -1,8 +1,13 @@
 module.exports = {
+  publicPath: process.env.NODE_ENV === 'production' ? '/vue/dist/' : '/',
+
+
+
 
   devServer: {
-
-    port: 8005, // CHANGE YOUR PORT HERE!
+    compress: true,
+    disableHostCheck: true,
+    port: 8002, // CHANGE YOUR PORT HERE!
     https: false,
     hotOnly: false,
   },

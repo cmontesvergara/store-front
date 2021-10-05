@@ -73,33 +73,35 @@ export default {
     return {
       showBtnBorrar: false,
       info: Object,
-      infoActual:Object,
+      infoActual: Object,
       inpConsulta: "",
     };
   },
   methods: {
-
     async consultar() {
       let respuesta = await Api.getOne(this.inpConsulta);
-      if (respuesta.data[0] != undefined &&  respuesta.data[0].nombre == this.inpConsulta) {
+      if (
+        respuesta.data[0] != undefined &&
+        respuesta.data[0].nombre == this.inpConsulta
+      ) {
         console.log(respuesta.data);
         this.info = respuesta.data[0];
         this.showBtnBorrar = true;
-      }else{
-        alert(`${this.inpConsulta}no se pudo encontrar en la base de datos`);
+      } else {
+        alert(`${this.inpConsulta} no se pudo encontrar en la base de datos`);
       }
     },
     async actualizar() {
-      const nombre = document.getElementById('nombre').value;
-      const apellido = document.getElementById('apellido').value;
-      const telefono = document.getElementById('telefono').value;
-      this.infoActual ={
+      const nombre = document.getElementById("nombre").value;
+      const apellido = document.getElementById("apellido").value;
+      const telefono = document.getElementById("telefono").value;
+      this.infoActual = {
         nombre: nombre,
-        apellido:apellido,
-        telefono:telefono
-      }
+        apellido: apellido,
+        telefono: telefono,
+      };
       //console.log(this.infoActual);
-      await Api.update(this.inpConsulta,this.infoActual);
+      await Api.update(this.inpConsulta, this.infoActual);
       window.location.reload(true);
     },
     async borrar() {
