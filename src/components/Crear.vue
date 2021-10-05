@@ -20,38 +20,16 @@
           id="telefono"
           required
         />
-        <button class="btn" type="submit">Crear</button>
+        <button class="btn" type="button" @click="crear">Crear</button>
       </form>
     </div>
-    <div class="card">
-      <form action="" method="post">
-        <label for="nombre">Nombre: </label>
-        <input class="entrada" type="text" name="nombre" id="nombre" required />
-        <label for="apellido">Apellido: </label>
-        <input
-          class="entrada"
-          type="text"
-          name="apellido"
-          id="apellido"
-          required
-        />
-        <label for="telefono">Telefono: </label>
-        <input
-          class="entrada"
-          type="tel"
-          name="telefono"
-          id="telefono"
-          required
-        />
-        <button class="btn" type="submit">Crear</button>
-      </form>
-    </div>
+
 
   </div>
 </template>
 
 <script>
-//import getAllSedes from "@/peticiones/getAllSedes";
+ import Api from '@/logic/Api'
 export default {
   name: "Crear",
 
@@ -59,8 +37,18 @@ export default {
     return {
       vistaCrear: false,
       vistaActualizar: false,
+
     };
   },
+  methods:{
+    async crear(){
+      const nombre = document.getElementById('nombre').value;
+      const apellido = document.getElementById('apellido').value;
+      const telefono = document.getElementById('telefono').value;
+      await Api.create({nombre:nombre,apellido,telefono});
+      window.location.reload(true);
+    }
+  }
   //async created() {
   //  let respuesta = await getAllSedes.get();
   //  this.result = respuesta.data;

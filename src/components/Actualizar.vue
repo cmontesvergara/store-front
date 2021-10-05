@@ -78,6 +78,7 @@ export default {
     };
   },
   methods: {
+
     async consultar() {
       let respuesta = await Api.getOne(this.inpConsulta);
       if (respuesta.data[0] != undefined &&  respuesta.data[0].nombre == this.inpConsulta) {
@@ -85,7 +86,7 @@ export default {
         this.info = respuesta.data[0];
         this.showBtnBorrar = true;
       }else{
-        alert(`${this.inpConsulta}no se pudo encontrar en la base de datos`)
+        alert(`${this.inpConsulta}no se pudo encontrar en la base de datos`);
       }
     },
     async actualizar() {
@@ -97,7 +98,7 @@ export default {
         apellido:apellido,
         telefono:telefono
       }
-      console.log(this.infoActual);
+      //console.log(this.infoActual);
       await Api.update(this.inpConsulta,this.infoActual);
       window.location.reload(true);
     },
